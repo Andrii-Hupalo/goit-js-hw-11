@@ -1,5 +1,5 @@
 import axios from 'axios';
-const key = 52813503-cb7190d9096228e90c42c3654;
+const key = '52813503-cb7190d9096228e90c42c3654';
 export function getImagesByQuery(query) {
   return axios
     .get('https://pixabay.com/api/', {
