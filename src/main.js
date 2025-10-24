@@ -1,8 +1,6 @@
 import './css/styles.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { getImagesByQuery } from './js/pixabay-api';
 import {
@@ -13,8 +11,6 @@ import {
 } from './js/render-functions';
 
 const form = document.querySelector('.form');
-
-let imageModal = null;
 
 if (!form) {
   console.error('Form element not found: .form');
@@ -51,15 +47,6 @@ function handlerButton(event) {
       }
 
       createGallery(images);
-
-      if (imageModal) {
-        imageModal.refresh();
-      } else {
-        imageModal = new SimpleLightbox('.gallery a', {
-          captionsData: 'alt',
-          captionDelay: 250,
-        });
-      }
     })
     .catch(error => {
       console.error(error);

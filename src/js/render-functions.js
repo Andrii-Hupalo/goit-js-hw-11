@@ -1,5 +1,9 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+let imageModal = null;
 
 export function createGallery(images) {
   const markup = images
@@ -30,7 +34,14 @@ export function createGallery(images) {
   } else {
     console.warn('Gallery element not found in DOM');
   }
-
+  if (imageModal) {
+    imageModal.refresh();
+  } else {
+    imageModal = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+    });
+  }
   return markup;
 }
 
